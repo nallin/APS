@@ -1,0 +1,73 @@
+
+#cabecalho {
+    background: #077f1d;
+    color: #fff;
+    padding: 5px 5px 5px 30px;
+    text-shadow: 2px 1px 2px #000;
+    border-bottom: 1px solid #023a78;
+}
+
+body {
+    background: #cdf7d5;
+    margin: 0;
+}
+
+#menuprincipal .menu ul {
+    margin: 0;
+    padding: 0;
+    width: 250px;
+}
+
+#menuprincipal .menu ul li a:hover {
+    background: #086619 none repeat scroll 0 0;
+}
+#menuprincipal {
+    float: left;
+    width: 330px;
+}
+
+
+#filtro-pesquisa {
+    float: left;
+}
+
+#tabela a.editar{
+    display: inline-block;
+    height: 30px;
+    text-indent: -9999px;
+    width: 30px;
+    background:url("edit.png")no-repeat center center;
+    background-size:25px;
+}
+#tabela a.excluir{
+    display: inline-block;
+    height: 30px;
+    text-indent: -9999px;
+    width: 30px;
+    background:url("excluir.png")no-repeat center center;
+    background-size:25px;
+}
+
+
+
+
+#menuprincipal .menu ul li{
+    list-style: none;
+}
+.primeiro-item a{
+    border-top: none !important;
+}
+.ultimo-item a{
+    border-bottom: none !important;
+}
+#menuprincipal .menu ul li a {
+    background: #077f1d none repeat scroll 0 0;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #aaa;
+    color: #fff;
+    display: block;
+    font-size: 21px;
+    padding: 20px 0 20px 28px;
+    text-decoration: none;
+    width: 100%;
+}
