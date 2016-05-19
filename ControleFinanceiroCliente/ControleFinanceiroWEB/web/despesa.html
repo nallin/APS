@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link href="css/elements.css" rel="stylesheet" type="text/css">
+        <script src="js/my_js.js"></script>
+        <title>Controle Financeiro</title>
+    </head>
+	<body id="body" style="overflow: hidden">
+            <div id="abc">
+                <!-- Popup Div Starts Here -->
+                <div id="popupContact">
+                <!-- Contact Us Form -->
+                    <form action="#" id="form" method="post" name="form">
+                        <img id="close" src="images/exit.png" onclick ="div_hide()">
+                        <h2>Despesa - Novo</h2>
+                        <hr>
+                        *Valor (R$): <input id="lbl_valor_des" name="valor_des" type="text"><p>
+                        *Descrição: <input id="lbl_descricao_des" name="descricao_des" type="text"><p>
+                        *Data: <input id="lbl_descricao_des" name="data_des" type="date"><p>
+                        *Categoria:  <select>
+                                        <option value="#"> </option>
+                                        <option value="#"> </option>
+                                     </select> <p>
+                        *Tipo: <br>
+                                <select>
+                                    <option value="eventual_des" selected="selected">Eventual</option>
+                                    <option value="frenquete_des">Frequente</option>
+                                </select> <p>
+                        Dia Corrente: <input id="lbl_dia_corr_des" name="dia_corr_des" type="number">
+                        <a href="categoria.html" id="submit"> Cancelar </a>
+                        <a href="javascript:%20check_empty()" id="submit"> Salvar </a>
+                    </form>
+                </div>
+                <!-- Popup Div Ends Here -->
+            </div>
+            <!-- Página Inicial -->
+            <div id="cabecalho">
+                <h1> Controle Financeiro Pessoal </h1>
+            </div>
+           <div id="menuprincipal"> 
+                <div class="menu">
+                    <ul>
+                        <li class="primeiro-item">
+                            <a href="index.html"> Ínicio </a>
+                        </li>
+                        <li class="receita">
+                            <a href="receita.html"> Receita </a>
+                        </li>
+                        <li class="despesa">
+                            <a href="despesa.html"> Despesa </a>
+                        </li>
+                        <li class="ultimo-item">
+                            <a href="categoria.html"> Categoria </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="filtro-pesquisa">
+                <h2>Despesa - Filtro de Pesquisa</h2> <br>
+                <!-- Botão Novo -->
+                <button id="popup" onclick="div_show()"> Novo </button>
+               <h5> Em contrução. Aguarde!</h5>
+                
+                <!-- Botão Novo -->
+                <!--<button id="popup" onclick="div_show()"> Novo </button>
+                <input type="submit" id="btn_novo" value="Novo" >
+                <div id="tabela">
+                    <table border="1" width="100%">
+                        <thead>
+                            <tr>
+                                <th class="primeira">Nº</th>
+                                <th>Nome</th>
+                                <th>Opções</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><a class="editar" href="#"> Editar Despesa </a>
+                                    <a class="excluir" href="#"> Excluir Despesa </a>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> -->
+            </div>
+	</body>
+</html>
