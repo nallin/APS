@@ -3,3 +3,4 @@
 /ControleFinanceiroWEB/dist/
 *.ini
 *.class
+/ControleFinanceiroServidor/DbFinance/nbproject/private/
