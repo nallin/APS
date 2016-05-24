@@ -16,7 +16,7 @@ public class FabricaConexoes {
         this.porta = "3306";
         this.base = "dbFinance";
         this.login = "root";
-        this.senha = "";
+        this.senha = "root";
     }
 
     public String getServidor() {
