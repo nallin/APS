@@ -18,18 +18,36 @@ public class Categoria {
      */
     public static void main(String[] args) {
         String s;
-        
-        System.out.print("Digite a nova Categoria: ");
+        int escolha;
+
+        System.out.print("#CATEGORIA#\n\n1-Inserir\n2-Apagar\n\nEscolha uma opcao: ");
         Scanner novo = new Scanner(System.in);
-        s = novo.next();
-        inscat(s);
-        
+        escolha = novo.nextInt();
+
+        switch (escolha) {
+            case 1:
+                System.out.print("Digite a nova Categoria: ");
+                s = novo.next();
+                inserirCategoria(s);
+                break;
+            case 2:
+                System.out.print("Digite o nome da Categoria: ");
+                s = novo.next();
+                apagarCategoria(s);
+                break;
+        }
     }
 
-    private static String inscat(java.lang.String cat) {
-        com.categoria.db.NovoWebService_Service service = new com.categoria.db.NovoWebService_Service();
-        com.categoria.db.NovoWebService port = service.getNovoWebServicePort();
-        return port.inscat(cat);
+    private static String inserirCategoria(java.lang.String cat) {
+        service.Finance_Service service = new service.Finance_Service();
+        service.Finance port = service.getFinancePort();
+        return port.inserirCategoria(cat);
     }
-    
+
+    private static String apagarCategoria(java.lang.String cat) {
+        service.Finance_Service service = new service.Finance_Service();
+        service.Finance port = service.getFinancePort();
+        return port.apagarCategoria(cat);
+    }
+
 }

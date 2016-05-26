@@ -4,3 +4,8 @@
 *.ini
 *.class
 /ControleFinanceiroServidor/DbFinance/nbproject/private/
+/$Old/dbFinance/build/
+/$Old/dbFinance/nbproject/private/
+/WS_Finance/build/
+/ClienteWEB/nbproject/private/
+/ClienteWEB/build/

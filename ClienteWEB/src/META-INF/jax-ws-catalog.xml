@@ -2,4 +2,8 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8080/CategoriaServidor/NovoWebService?wsdl" uri="wsdl/localhost_8080/CategoriaServidor/NovoWebService.wsdl"/>
     <system systemId="http://localhost:8080/CategoriaServidor/NovoWebService?xsd=1" uri="wsdl/localhost_8080/CategoriaServidor/NovoWebService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WS_Finance/Finance?wsdl" uri="wsdl/localhost_8080/WS_Finance/Finance.wsdl"/>
+    <system systemId="http://localhost:8080/WS_Finance/Finance?xsd=1" uri="wsdl/localhost_8080/WS_Finance/Finance.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WS_Finance2/Finance?wsdl" uri="wsdl/localhost_8080/WS_Finance2/Finance.wsdl"/>
+    <system systemId="http://localhost:8080/WS_Finance2/Finance?xsd=1" uri="wsdl/localhost_8080/WS_Finance2/Finance.xsd_1.xsd"/>
 </catalog>

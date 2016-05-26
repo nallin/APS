@@ -16,22 +16,22 @@
             <classpath path="${libs.jaxws21.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsimport-client-NovoWebService" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/NovoWebService"/>
-        <property name="wsdl-NovoWebService" location="xml-resources/web-service-references/NovoWebService/wsdl/localhost_8080/CategoriaServidor/NovoWebService.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/NovoWebService" destdir="${build.generated.dir}/jax-wsCache/NovoWebService" wsdl="${wsdl-NovoWebService}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/CategoriaServidor/NovoWebService?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${wsdl-NovoWebService}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/NovoWebService"/>
+    <target name="wsimport-client-Finance" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/Finance"/>
+        <property name="wsdl-Finance" location="xml-resources/web-service-references/Finance/wsdl/localhost_8080/WS_Finance/Finance.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Finance" destdir="${build.generated.dir}/jax-wsCache/Finance" wsdl="${wsdl-Finance}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/WS_Finance/Finance?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-Finance}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/Finance"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/NovoWebService">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Finance">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-NovoWebService" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/NovoWebService"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/com/categoria/db"/>
+    <target name="wsimport-client-clean-Finance" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/Finance"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/service"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-NovoWebService"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-Finance"/>
 </project>

@@ -2,10 +2,10 @@
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services/>
   <clients>
-    <client name="NovoWebService">
-      <wsdl-url>http://localhost:8080/CategoriaServidor/NovoWebService?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_8080/CategoriaServidor/NovoWebService.wsdl</local-wsdl-file>
-      <package-name>com.categoria.db</package-name>
+    <client name="Finance">
+      <wsdl-url>http://localhost:8080/WS_Finance/Finance?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/WS_Finance/Finance.wsdl</local-wsdl-file>
+      <package-name>service</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/CategoriaServidor/NovoWebService?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/WS_Finance/Finance?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
