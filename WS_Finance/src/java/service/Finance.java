@@ -51,21 +51,28 @@ public class Finance {
         return ("Apagado");
 
     }
-    /*    
+       
+    /**
+     *
+     * @param txt
+     * @param txt
+     * @return
+     */
     @WebMethod(operationName = "atualizarCategoria")
-    public String atualizarCategoria (@WebParam(name = "cat") String txt){
+    public String atualizarCategoria (@WebParam(name = "cat")String txt1, String txt2){
  
         try {
             Categoria nova = new Categoria();
-            nova.setName(txt);
+            nova.setName(txt1);
             CategoriaDAO cat = new CategoriaDAO();
-            cat.atualizar(nova);
+            cat.atualizar(nova, txt2);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
         }
         return("Inserido");
         
-    }    
+    }
+    /*
     @WebMethod(operationName = "listarCategoria")
     public String listarCategoria (@WebParam(name = "cat") String txt){
  

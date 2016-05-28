@@ -4,17 +4,22 @@
 
 <xs:element name="apagarCategoriaResponse" type="tns:apagarCategoriaResponse"/>
 
+<xs:element name="atualizarCategoria" type="tns:atualizarCategoria"/>
+
+<xs:element name="atualizarCategoriaResponse" type="tns:atualizarCategoriaResponse"/>
+
 <xs:element name="inserirCategoria" type="tns:inserirCategoria"/>
 
 <xs:element name="inserirCategoriaResponse" type="tns:inserirCategoriaResponse"/>
 
-<xs:complexType name="inserirCategoria">
+<xs:complexType name="atualizarCategoria">
 <xs:sequence>
 <xs:element name="cat" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="inserirCategoriaResponse">
+<xs:complexType name="atualizarCategoriaResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
@@ -27,6 +32,18 @@
 </xs:complexType>
 
 <xs:complexType name="apagarCategoriaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="inserirCategoria">
+<xs:sequence>
+<xs:element name="cat" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="inserirCategoriaResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
