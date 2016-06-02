@@ -5,28 +5,29 @@
  */
 package modelo;
 
-/**
- *
- * @author guilhermemn
- */
+
 public class Frequente {
-    private int id, lancamento_id;
+    private int id, id_movimento;
     private String periodo;
 
+    
+    public Frequente() {
+    }
+    
     public int getId() {
         return id;
     }
 
+    public int getId_movimento() {
+        return id_movimento;
+    }
+
+    public void setId_movimento(int id_movimento) {
+        this.id_movimento = id_movimento;
+    }
+
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getLancamento_id() {
-        return lancamento_id;
-    }
-
-    public void setLancamento_id(int lancamento_id) {
-        this.lancamento_id = lancamento_id;
     }
 
     public String getPeriodo() {

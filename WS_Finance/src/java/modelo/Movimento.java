@@ -1,57 +1,50 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- *
- * @author guilhermemn
- */
 public class Movimento {
-    private int id, categoria_id;
-    private Boolean tipo_lancamento, conta_fixa;
+
+    private int id, id_Categoria, tipo_Lancamento;
     private String titulo, descricao;
     private Date vencimento;
+    private Float valor;
 
-    public Boolean getTipo_lancamento() {
-        return tipo_lancamento;
+    public Movimento() {
     }
-
-    public void setTipo_lancamento(Boolean tipo_lancamento) {
-        this.tipo_lancamento = tipo_lancamento;
-    }
-
-    public int getCategoria_id() {
-        return categoria_id;
-    }
-
-    public void setCategoria_id(int categoria_id) {
-        this.categoria_id = categoria_id;
-    }
-    private float valor;
 
     public int getId() {
         return id;
+    }
+
+    public int getId_Categoria() {
+        return id_Categoria;
+    }
+
+    public void setId_Categoria(int id_Categoria) {
+        this.id_Categoria = id_Categoria;
+    }
+
+    public int getTipo_Lancamento() {
+        return tipo_Lancamento;
+    }
+
+    public void setTipo_Lancamento(int tipo_Lancamento) {
+        this.tipo_Lancamento = tipo_Lancamento;
+    }
+
+    public Float getValor() {
+        return valor;
+    }
+
+    public void setValor(Float valor) {
+        this.valor = valor;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public Boolean getConta_fixa() {
-        return conta_fixa;
-    }
-
-    public void setConta_fixa(Boolean conta_fixa) {
-        this.conta_fixa = conta_fixa;
-    }
-
-    
     public String getTitulo() {
         return titulo;
     }
@@ -90,15 +83,4 @@ public class Movimento {
     public void setVencimento(Date vencimento) {
         this.vencimento = vencimento;
     }
-
-    public float getValor() {
-        return valor;
-    }
-
-    public void setValor(float valor) {
-        this.valor = valor;
-    }
-    
-    
-    
 }
