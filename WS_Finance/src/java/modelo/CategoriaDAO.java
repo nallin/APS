@@ -6,24 +6,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author guilhermemn
- */
 public class CategoriaDAO {
+    
+    public boolean debugar;
+    
     
     public Connection banco;
     
     public CategoriaDAO() throws ClassNotFoundException, SQLException {
         FabricaConexoes fabrica = new FabricaConexoes();
         banco = fabrica.Conexao();
+        debugar = true;
     }
     
     @Override
     @SuppressWarnings("FinalizeDeclaration")
-    protected void finalize() throws SQLException, Throwable
-    {
+    protected void finalize() throws SQLException, Throwable {
         try {
             banco.close();
         } finally {
@@ -33,8 +33,8 @@ public class CategoriaDAO {
 
     public boolean inserir(Categoria c) throws ClassNotFoundException, SQLException {
         PreparedStatement stmt = banco.prepareStatement("INSERT INTO categoria (id, name) VALUES (NULL, ?);");
-
         stmt.setString(1, c.getName());
+        if(debugar) System.out.println("chamado: inserir");
         return stmt.execute();
     }
     
@@ -56,14 +56,15 @@ public class CategoriaDAO {
         ArrayList<Categoria> lista = new ArrayList<Categoria>();
         
         ResultSet resultado = stmt.executeQuery();
-        Categoria c;
+        Categoria p;
         while(resultado.next()){
-            c = new Categoria();
-            c.setId(resultado.getInt("id"));
-            c.setName(resultado.getString("name"));
-            lista.add(c);
+            p = new Categoria();
+            p.setName(resultado.getString("name"));
+            lista.add(p);
+            if(debugar) System.out.println(lista);
         }
         
         return lista;
     }
+
 }

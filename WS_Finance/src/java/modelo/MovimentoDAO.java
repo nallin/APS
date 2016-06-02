@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
 import controlador.FabricaConexoes;
@@ -12,10 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- *
- * @author guilhermemn
- */
 public class MovimentoDAO {
     
     Connection banco;
@@ -27,8 +18,7 @@ public class MovimentoDAO {
     
     @Override
     @SuppressWarnings("FinalizeDeclaration")
-    protected void finalize() throws SQLException, Throwable
-    {
+    protected void finalize() throws SQLException, Throwable {
         try {
             banco.close();
         } finally {
@@ -38,7 +28,7 @@ public class MovimentoDAO {
 
     public int inserir(Movimento m) throws ClassNotFoundException, SQLException {
         PreparedStatement stmt = banco.prepareStatement("INSERT INTO movimentos (id, "
-                + "titulo, descricao, vencimento, valor, categoria_id, tipo_lancamento, conta_fixa) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                + "titulo, descricao, vencimento, valor, categoria_id, tipo_lancamento, conta_fixa) VALUES (null, ?, ?, ?, ?, ?, ?, ?)");
 
         java.util.Date data = m.getVencimento();
         java.sql.Date databanco = new java.sql.Date(data.getTime());

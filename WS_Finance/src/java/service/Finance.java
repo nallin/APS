@@ -1,6 +1,7 @@
 package service;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.jws.WebService;
@@ -9,10 +10,6 @@ import javax.jws.WebParam;
 import modelo.Categoria;
 import modelo.CategoriaDAO;
 
-/**
- *
- * @author Desktop
- */
 @WebService(serviceName = "Finance")
 public class Finance {
 
@@ -34,12 +31,10 @@ public class Finance {
             Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ("Inserido");
-
     }
 
     @WebMethod(operationName = "apagarCategoria")
     public String apagarCategoria(@WebParam(name = "cat") String txt) {
-
         try {
             Categoria nova = new Categoria();
             nova.setName(txt);
@@ -49,7 +44,6 @@ public class Finance {
             Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ("Apagado");
-
     }
        
     /**
@@ -60,7 +54,6 @@ public class Finance {
      */
     @WebMethod(operationName = "atualizarCategoria")
     public String atualizarCategoria (@WebParam(name = "cat")String txt1, String txt2){
- 
         try {
             Categoria nova = new Categoria();
             nova.setName(txt1);
@@ -72,18 +65,18 @@ public class Finance {
         return("Inserido");
         
     }
-    /*
-    @WebMethod(operationName = "listarCategoria")
-    public String listarCategoria (@WebParam(name = "cat") String txt){
- 
+   @WebMethod(operationName = "listarCategoria")
+    public String listarCategoria (){
+        String lista = "";
         try {
+            //String lista = "";
             Categoria nova = new Categoria();
-            nova.setName(txt);
+            //nova.setName(txt);
             CategoriaDAO cat = new CategoriaDAO();
-            cat.listar(nova);
+            lista = "\n" + cat.listar();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return("Inserido");
-     */
-}
+        return lista;
+    }
+}    

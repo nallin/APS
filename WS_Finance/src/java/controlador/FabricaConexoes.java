@@ -14,7 +14,7 @@ public class FabricaConexoes {
     public FabricaConexoes(){
         this.servidor = "localhost";
         this.porta = "3306";
-        this.base = "dbFinance";
+        this.base = "dbfinance";
         this.login = "root";
         this.senha = "root";
     }

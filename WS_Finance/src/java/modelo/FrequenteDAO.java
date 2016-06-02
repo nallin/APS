@@ -6,18 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- *
- * @author guilhermemn
- */
 public class FrequenteDAO {
     
     Connection banco;
-    
-    
+  
     public int inserir(Frequente f) throws ClassNotFoundException, SQLException {
         PreparedStatement stmt = banco.prepareStatement("INSERT INTO categoria (id, lancamento_id, periodo) VALUES (?, ?, ?)");
-
         stmt.setInt(1, f.getId());
         stmt.setInt(2, f.getLancamento_id());
         stmt.setString(3, f.getPeriodo());
