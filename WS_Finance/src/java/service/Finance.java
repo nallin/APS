@@ -1,6 +1,11 @@
 package service;
 
+
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -9,6 +14,8 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import modelo.Categoria;
 import modelo.CategoriaDAO;
+import modelo.Movimento;
+import modelo.MovimentoDAO;
 
 @WebService(serviceName = "Finance")
 public class Finance {
@@ -79,4 +86,22 @@ public class Finance {
         }
         return lista;
     }
+    @WebMethod(operationName = "inserirMovimento")
+    public String inserirMovimento(@WebParam(name = "mov") String tit, String desc, String dat, float v, int cat, int lan) throws ParseException{
+
+        try {
+            Movimento nova = new Movimento(cat, lan, tit, desc, v);
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");  
+            Date dt = df.parse(dat);
+            nova.setVencimento(dt);
+            MovimentoDAO mov = new MovimentoDAO();
+            mov.inserir(nova);
+            
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ("Inserido");
+    }
+
 }    

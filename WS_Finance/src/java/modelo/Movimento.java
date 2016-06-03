@@ -13,6 +13,27 @@ public class Movimento {
     public Movimento() {
     }
 
+    /**
+     *
+     * @param id_Categoria
+     * @param tipo_Lancamento
+     * @param titulo
+     * @param descricao
+     * @param vencimento
+     * @param valor
+     */
+    public Movimento(int id_Categoria, int tipo_Lancamento, String titulo, String descricao, Float valor) {
+        this.id = id;
+        this.id_Categoria = id_Categoria;
+        this.tipo_Lancamento = tipo_Lancamento;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.vencimento = vencimento;
+        this.valor = valor;
+    }
+    
+    
+
     public int getId() {
         return id;
     }

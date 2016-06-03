@@ -1,59 +1,67 @@
 package menu;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import service.ParseException_Exception;
 
 public class Mov_menu {
 
     /**
      * @param args the command line arguments
      */
-    public void movimento_menu (String[] args) {
-        String s1;
-        String s2;
-       // String s3;
-        int escolha_movimento;
-
-        System.out.print("\n #Movimento# \n ");
-        System.out.print("\n 1-Inserir");
-        System.out.print("\n 2-Apagar ");
-        System.out.print("\n 2-Atualizar ");
-        System.out.print("\n Escolha uma opcao: ");
-        
-        Scanner novo = new Scanner(System.in);
-        escolha_movimento = novo.nextInt();
-
-        switch (escolha_movimento) {
-            case 1:
-                System.out.print("Inserir um titulo: ");
-                
-                System.out.print("Inserir uma descrição: ");
-                System.out.print("Inserir o vencimento: ");
-                System.out.print("Inserir o valor: ");
-                //System.out.print("Inserir um tipo: ");
-                //System.out.print("Inserir uma categoria: ");
-                s1 = novo.next();
-                inserirMovimento(s1);
-                break;
-            case 2:
-                System.out.print("Apagar um Movimento: ");
-                s2 = novo.next();
-                apagarMovimento(s2);
-                break;
+    public void movimento_menu (String[] args){
+        try {
+            String s1;
+            String s2;
+            String dat;
+            int escolha_movimento, val, tip, cat;
+            System.out.print("\n #Movimento# \n ");
+            System.out.print("\n 1-Inserir");
+            System.out.print("\n 2-Apagar ");
+            System.out.print("\n 3-Atualizar ");
+            System.out.print("\n Escolha uma opcao: ");
+            Scanner novo = new Scanner(System.in);
+            escolha_movimento = novo.nextInt();
+            switch (escolha_movimento) {
+                case 1:
+                    System.out.print("Inserir um titulo: ");
+                    s1 = novo.next();
+                    System.out.print("Inserir uma descrição: ");
+                    s2 = novo.next();
+                    System.out.print("Inserir o vencimento: ");
+                    dat = novo.next();
+                    System.out.print("Inserir o valor: ");
+                    val = novo.nextInt();
+                    System.out.print("Inserir um tipo: ");
+                    tip = novo.nextInt();
+                    System.out.print("Inserir uma categoria: ");
+                    cat = novo.nextInt();
+                    inserirMovimento(s1, s2, dat, val, tip, cat);
+                    break;
+                case 2:
+                    System.out.print("Apagar um Movimento: ");
+                    /* s2 = novo.next();*/
+                    /* apagarMovimento(s2);*/
+                    break;
+            }
+        } catch (ParseException_Exception ex) {
+            Logger.getLogger(Mov_menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private static String inserirMovimento(java.lang.String cat) {
+    private static String inserirMovimento(java.lang.String mov, java.lang.String arg1, java.lang.String arg2, float arg3, int arg4, int arg5) throws ParseException_Exception {
         service.Finance_Service service = new service.Finance_Service();
         service.Finance port = service.getFinancePort();
-        return port.inserirCategoria(cat);
+        return port.inserirMovimento(mov, arg1, arg2, arg3, arg4, arg5);
     }
 
-    private static String apagarMovimento(java.lang.String cat) {
-        service.Finance_Service service = new service.Finance_Service();
-        service.Finance port = service.getFinancePort();
-        return port.apagarCategoria(cat);
-    }
-    
+
+   
     
     
 
