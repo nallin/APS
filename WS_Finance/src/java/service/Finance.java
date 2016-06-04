@@ -21,12 +21,9 @@ public class Finance {
 
     public boolean debugar;
 
-    /**
-     * This is a sample web service operation
-     *
-     * @param txt
-     * @return *
-     */
+    /*
+        Categoria
+    */
     @WebMethod(operationName = "inserirCategoria")
     public String inserirCategoria(@WebParam(name = "cat") String txt) {
 
@@ -54,12 +51,6 @@ public class Finance {
         return ("Apagado");
     }
 
-    /**
-     *
-     * @param txt
-     * @param txt
-     * @return
-     */
     @WebMethod(operationName = "atualizarCategoria")
     public String atualizarCategoria(@WebParam(name = "cat") String txt1, String txt2) {
         try {
@@ -78,9 +69,6 @@ public class Finance {
     public String listarCategoria() {
         String lista = "";
         try {
-            //String lista = "";
-            Categoria nova = new Categoria();
-            //nova.setName(txt);
             CategoriaDAO cat = new CategoriaDAO();
             lista = "\n" + cat.listar();
         } catch (ClassNotFoundException | SQLException ex) {
@@ -88,12 +76,14 @@ public class Finance {
         }
         return lista;
     }
-
+    /*
+        Movimento / Frequente
+    */
     @WebMethod(operationName = "inserirMovimento")
-    public String inserirMovimento(@WebParam(name = "mov") String tit, String desc, String dat, float v, int lan, int cat) throws ParseException {
+    public String inserirMovimento(@WebParam(name = "mov") String tit, String desc, String dat, float v, int lan, int cat, String periodo) throws ParseException {
 
         try {
-            Movimento nova = new Movimento(cat, lan, tit, desc, v);
+            Movimento nova = new Movimento(cat, lan, tit, desc, v, periodo);
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             Date dt = df.parse(dat);
             nova.setVencimento(dt);
@@ -137,9 +127,7 @@ public class Finance {
     public String listarMovimento() {
         String lista = "";
         try {
-            //String lista = "";
-            Movimento nova = new Movimento();
-            //nova.setName(txt);
+            
             MovimentoDAO mov = new MovimentoDAO();
             lista = "\n" + mov.listar();
         } catch (ClassNotFoundException | SQLException ex) {
@@ -147,4 +135,6 @@ public class Finance {
         }
         return lista;
     }
+    
+       
 }

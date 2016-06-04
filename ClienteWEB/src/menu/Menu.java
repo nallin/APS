@@ -1,16 +1,16 @@
 package menu;
 
 import java.util.Scanner;
+import service.ParseException_Exception;
 
 public class Menu {
     
-    public static void main (String[] args) {
+    public static void main (String[] args) throws ParseException_Exception {
         int escolha_menu;
 
         System.out.print("\n #MENU#\n ");
         System.out.print("\n 1- Categoria");
-        System.out.print("\n 2- Frequente");
-        System.out.print("\n 3- Movimento");
+        System.out.print("\n 2- Movimento Eventual / Frequente");
         System.out.print("\n Escolha uma opcao:");
 
         Scanner novo = new Scanner(System.in);
@@ -22,13 +22,9 @@ public class Menu {
                 cate.categoria_menu(args);
             break;
             case 2:
-                Freq_menu freq = new Freq_menu();
-                freq.frequente_menu(args);
-            break;
-            case 3:
                 Mov_menu movi = new Mov_menu();
                 movi.movimento_menu(args);
-             break;   
+            break;   
         }
     }
 }

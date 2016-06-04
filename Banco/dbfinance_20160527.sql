@@ -39,29 +39,14 @@ CREATE TABLE IF NOT EXISTS `dbfinance`.`movimentos` (
   `valor` DECIMAL(12,2) NULL DEFAULT NULL,
   `id_categoria` SMALLINT(10) NOT NULL,
   `tipo_lancamento` TINYINT(1) NOT NULL DEFAULT '0',
+  `periodo` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id_movimento`),
   INDEX `id_categoria` (`id_categoria` ASC),
   CONSTRAINT `movimentos_ibfk_1`
     FOREIGN KEY (`id_categoria`)
     REFERENCES `dbfinance`.`categoria` (`id_categoria`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
-
--- -----------------------------------------------------
--- Table `dbfinance`.`lanc_freq`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `dbfinance`.`lanc_freq` (
-  `id_lfreq` INT(11) NOT NULL AUTO_INCREMENT,
-  `id_movimento` INT(11) NOT NULL,
-  `periodo` VARCHAR(20) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_lfreq`),
-  INDEX `id_movimento` (`id_movimento` ASC),
-  CONSTRAINT `lanc_freq_ibfk_1`
-    FOREIGN KEY (`id_movimento`)
-    REFERENCES `dbfinance`.`movimentos` (`id_movimento`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

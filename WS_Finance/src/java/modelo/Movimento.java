@@ -9,7 +9,16 @@ public class Movimento {
     private String titulo, descricao;
     private Date vencimento;
     private Float valor;
+    private String periodo;
 
+    public String getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
+    }
+    
     public Movimento() {
     }
 
@@ -22,7 +31,7 @@ public class Movimento {
      * @param vencimento
      * @param valor
      */
-    public Movimento(int id_Categoria, int tipo_Lancamento, String titulo, String descricao, Float valor) {
+    public Movimento(int id_Categoria, int tipo_Lancamento, String titulo, String descricao, Float valor, String periodo) {
        
         this.id_Categoria = id_Categoria;
         this.tipo_Lancamento = tipo_Lancamento;
@@ -30,9 +39,8 @@ public class Movimento {
         this.descricao = descricao;
         this.vencimento = vencimento;
         this.valor = valor;
-    }
-    
-    
+        this.periodo = periodo;
+    }   
 
     public int getId() {
         return id;

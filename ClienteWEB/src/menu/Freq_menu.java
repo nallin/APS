@@ -1,16 +1,18 @@
 package menu;
 
 import java.util.Scanner;
+import service.ParseException_Exception;
 
 public class Freq_menu {
     /**
      * @param args the command line arguments
      */
-    public void frequente_menu (String[] args) {
+    public void frequente_menu (String[] args) throws ParseException_Exception {
         String s1;
         String s2;
         int escolha_frequente;
-
+        String dat;
+        int val, tip, cat;
         System.out.print("\n #FREQUENTE# \n ");
         System.out.print("\n 1-Inserir");
         System.out.print("\n 2-Apagar ");
@@ -21,16 +23,29 @@ public class Freq_menu {
 
         switch (escolha_frequente) {
             case 1:
-                System.out.print("\n Inserir um Lançamento: ");
-                System.out.print("\n Inserir uma Periodo: ");
-                System.out.print("\n Inserir uma Categoria: ");
+                System.out.print("Inserir um titulo: ");
                 s1 = novo.next();
-                inserirFrequente(s1);
+                System.out.print("Inserir uma descrição: ");
+                s2 = novo.next();
+                System.out.print("Inserir o vencimento: ");
+                dat = novo.next();
+                System.out.print("Inserir o valor: ");
+                val = novo.nextInt();
+                System.out.print("Inserir um tipo (0-Despesa/1-Receita): ");
+                tip = novo.nextInt();
+                String lista1 = listarCategoria();
+                System.out.println(lista1);
+                System.out.print("Inserir uma categoria: ");
+                cat = novo.nextInt();
+               // inserirMovimento(s1, s2, dat, val, tip, cat);
+                System.out.print("\n Inserir um período (dia): ");
+                String periodo = novo.next();
+                //inserirFrequente(periodo);
                 break;
             case 2:
-                System.out.print("Apagra um Lancamento pelo nome: ");
+                System.out.print("Apagar um Lancamento pelo nome: ");
                 s2 = novo.next();
-                apagarFrequente(s2);
+                //apagarFrequente(s2);
                 break;
             case 3:
                 Scanner velho = new Scanner(System.in);
@@ -38,28 +53,30 @@ public class Freq_menu {
                 s2 = velho.next(); 
                 System.out.print("Digite ... Categoria: ");
                 s1 = novo.next();
-                atualizarFrequente(s2, s1);
+                //atualizarFrequente(s2, s1);
                 break;    
         }
     }
 
-    private static String inserirFrequente(java.lang.String cat) {
+    private static String listarCategoria() {
         service.Finance_Service service = new service.Finance_Service();
         service.Finance port = service.getFinancePort();
-        return port.inserirCategoria(cat);
+        return port.listarCategoria();
     }
 
-    private static String apagarFrequente(java.lang.String cat) {
+   /* private static String inserirMovimento(java.lang.String mov, java.lang.String arg1, java.lang.String arg2, float arg3, int arg4, int arg5) throws ParseException_Exception {
+       service.Finance_Service service = new service.Finance_Service();
+        service.Finance port = service.getFinancePort();
+        return port.inserirMovimento(mov, arg1, arg2, arg3, arg4, arg5);
+    }
+
+    private static String inserirFrequente(java.lang.String freq) throws ParseException_Exception {
         service.Finance_Service service = new service.Finance_Service();
         service.Finance port = service.getFinancePort();
-        return port.apagarCategoria(cat);
-    }
-    
-    private static String atualizarFrequente(java.lang.String cat, java.lang.String arg1) {
-        service.Finance_Service service = new service.Finance_Service();
-        service.Finance port = service.getFinancePort();
-        return port.atualizarCategoria(cat, arg1);
-    }
+        return port.inserirFrequente(freq);
+    }*/
+
+
 
 }
 

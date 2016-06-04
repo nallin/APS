@@ -31,7 +31,7 @@ public class MovimentoDAO {
 
     public int inserir(Movimento m) throws ClassNotFoundException, SQLException {
         PreparedStatement stmt = banco.prepareStatement("INSERT INTO movimentos(titulo, descricao, vencimento, valor, "
-                + "id_categoria, tipo_lancamento) VALUES(?, ?, ?, ?, ?, ?)");
+                + "id_categoria, tipo_lancamento, periodo) VALUES(?, ?, ?, ?, ?, ?, ?)");
 
         java.util.Date data = m.getVencimento();
         java.sql.Date databanco = new java.sql.Date(data.getTime());
@@ -42,7 +42,7 @@ public class MovimentoDAO {
         stmt.setFloat(4, m.getValor());
         stmt.setInt(5, m.getId_Categoria());
         stmt.setInt(6, m.getTipo_Lancamento());
-
+        stmt.setString(7, m.getPeriodo());
 
         return stmt.executeUpdate();
     }
@@ -89,7 +89,7 @@ public class MovimentoDAO {
         return stmt.executeUpdate();
     }
 
-    // FIM ATUALZAÇÃO NO BANCO    
+    // FIM ATUALIZAÇÃO NO BANCO    
     public ArrayList listar() throws SQLException {
         PreparedStatement stmt = banco.prepareStatement("SELECT * FROM movimentos");
         ArrayList<Movimento> lista = new ArrayList<Movimento>();
@@ -99,6 +99,7 @@ public class MovimentoDAO {
         while (resultado.next()) {
             m = new Movimento();
             m.setTitulo(resultado.getString("titulo"));
+            m.setDescricao(resultado.getString("descricao"));
             lista.add(m); 
             if(debugar) System.out.println(lista);
                        
