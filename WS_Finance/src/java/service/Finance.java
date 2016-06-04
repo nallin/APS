@@ -136,5 +136,16 @@ public class Finance {
         return lista;
     }
     
-       
+       @WebMethod(operationName = "Saldo")
+        public String listarSaldo() {
+        String lista = "";
+        try {
+            Movimento nova = new Movimento();
+            MovimentoDAO mov = new MovimentoDAO();
+            lista = "\n" + mov.listar();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
+    }
 }

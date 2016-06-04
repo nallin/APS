@@ -21,7 +21,7 @@ public class Mov_menu {
         System.out.print("\n 2-Apagar ");
         System.out.print("\n 3-Atualizar ");
         System.out.print("\n 4-Listar ");
-        //System.out.print("\n 5-Saldo ");
+        System.out.print("\n 5-Saldo ");
         System.out.print("\n Escolha uma opcao: ");
         Scanner novo = new Scanner(System.in);
         escolha_movimento = novo.nextInt();
@@ -70,6 +70,9 @@ public class Mov_menu {
                 System.out.println(lista);
                 
                 break;
+            case 5:
+                String total = saldo();
+                System.out.println(total);
         }
     }
 
@@ -103,6 +106,12 @@ public class Mov_menu {
         service.Finance_Service service = new service.Finance_Service();
         service.Finance port = service.getFinancePort();
         return port.inserirMovimento(mov, arg1, arg2, arg3, arg4, arg5, arg6);
+    }
+
+    private static String saldo() {
+        service.Finance_Service service = new service.Finance_Service();
+        service.Finance port = service.getFinancePort();
+        return port.saldo();
     }
 
     

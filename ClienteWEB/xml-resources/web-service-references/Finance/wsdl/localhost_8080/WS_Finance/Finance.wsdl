@@ -4,6 +4,24 @@
 <xsd:import namespace="http://service/" schemaLocation="http://localhost:8080/WS_Finance/Finance?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="apagarCategoria">
+<part name="parameters" element="tns:apagarCategoria"/>
+</message>
+<message name="apagarCategoriaResponse">
+<part name="parameters" element="tns:apagarCategoriaResponse"/>
+</message>
+<message name="atualizarCategoria">
+<part name="parameters" element="tns:atualizarCategoria"/>
+</message>
+<message name="atualizarCategoriaResponse">
+<part name="parameters" element="tns:atualizarCategoriaResponse"/>
+</message>
+<message name="listarCategoria">
+<part name="parameters" element="tns:listarCategoria"/>
+</message>
+<message name="listarCategoriaResponse">
+<part name="parameters" element="tns:listarCategoriaResponse"/>
+</message>
 <message name="inserirMovimento">
 <part name="parameters" element="tns:inserirMovimento"/>
 </message>
@@ -12,6 +30,12 @@
 </message>
 <message name="ParseException">
 <part name="fault" element="tns:ParseException"/>
+</message>
+<message name="inserirCategoria">
+<part name="parameters" element="tns:inserirCategoria"/>
+</message>
+<message name="inserirCategoriaResponse">
+<part name="parameters" element="tns:inserirCategoriaResponse"/>
 </message>
 <message name="apagarMovimento">
 <part name="parameters" element="tns:apagarMovimento"/>
@@ -31,35 +55,33 @@
 <message name="listarMovimentoResponse">
 <part name="parameters" element="tns:listarMovimentoResponse"/>
 </message>
-<message name="apagarCategoria">
-<part name="parameters" element="tns:apagarCategoria"/>
+<message name="Saldo">
+<part name="parameters" element="tns:Saldo"/>
 </message>
-<message name="apagarCategoriaResponse">
-<part name="parameters" element="tns:apagarCategoriaResponse"/>
-</message>
-<message name="listarCategoria">
-<part name="parameters" element="tns:listarCategoria"/>
-</message>
-<message name="listarCategoriaResponse">
-<part name="parameters" element="tns:listarCategoriaResponse"/>
-</message>
-<message name="inserirCategoria">
-<part name="parameters" element="tns:inserirCategoria"/>
-</message>
-<message name="inserirCategoriaResponse">
-<part name="parameters" element="tns:inserirCategoriaResponse"/>
-</message>
-<message name="atualizarCategoria">
-<part name="parameters" element="tns:atualizarCategoria"/>
-</message>
-<message name="atualizarCategoriaResponse">
-<part name="parameters" element="tns:atualizarCategoriaResponse"/>
+<message name="SaldoResponse">
+<part name="parameters" element="tns:SaldoResponse"/>
 </message>
 <portType name="Finance">
+<operation name="apagarCategoria">
+<input wsam:Action="http://service/Finance/apagarCategoriaRequest" message="tns:apagarCategoria"/>
+<output wsam:Action="http://service/Finance/apagarCategoriaResponse" message="tns:apagarCategoriaResponse"/>
+</operation>
+<operation name="atualizarCategoria">
+<input wsam:Action="http://service/Finance/atualizarCategoriaRequest" message="tns:atualizarCategoria"/>
+<output wsam:Action="http://service/Finance/atualizarCategoriaResponse" message="tns:atualizarCategoriaResponse"/>
+</operation>
+<operation name="listarCategoria">
+<input wsam:Action="http://service/Finance/listarCategoriaRequest" message="tns:listarCategoria"/>
+<output wsam:Action="http://service/Finance/listarCategoriaResponse" message="tns:listarCategoriaResponse"/>
+</operation>
 <operation name="inserirMovimento">
 <input wsam:Action="http://service/Finance/inserirMovimentoRequest" message="tns:inserirMovimento"/>
 <output wsam:Action="http://service/Finance/inserirMovimentoResponse" message="tns:inserirMovimentoResponse"/>
 <fault message="tns:ParseException" name="ParseException" wsam:Action="http://service/Finance/inserirMovimento/Fault/ParseException"/>
+</operation>
+<operation name="inserirCategoria">
+<input wsam:Action="http://service/Finance/inserirCategoriaRequest" message="tns:inserirCategoria"/>
+<output wsam:Action="http://service/Finance/inserirCategoriaResponse" message="tns:inserirCategoriaResponse"/>
 </operation>
 <operation name="apagarMovimento">
 <input wsam:Action="http://service/Finance/apagarMovimentoRequest" message="tns:apagarMovimento"/>
@@ -73,25 +95,40 @@
 <input wsam:Action="http://service/Finance/listarMovimentoRequest" message="tns:listarMovimento"/>
 <output wsam:Action="http://service/Finance/listarMovimentoResponse" message="tns:listarMovimentoResponse"/>
 </operation>
-<operation name="apagarCategoria">
-<input wsam:Action="http://service/Finance/apagarCategoriaRequest" message="tns:apagarCategoria"/>
-<output wsam:Action="http://service/Finance/apagarCategoriaResponse" message="tns:apagarCategoriaResponse"/>
-</operation>
-<operation name="listarCategoria">
-<input wsam:Action="http://service/Finance/listarCategoriaRequest" message="tns:listarCategoria"/>
-<output wsam:Action="http://service/Finance/listarCategoriaResponse" message="tns:listarCategoriaResponse"/>
-</operation>
-<operation name="inserirCategoria">
-<input wsam:Action="http://service/Finance/inserirCategoriaRequest" message="tns:inserirCategoria"/>
-<output wsam:Action="http://service/Finance/inserirCategoriaResponse" message="tns:inserirCategoriaResponse"/>
-</operation>
-<operation name="atualizarCategoria">
-<input wsam:Action="http://service/Finance/atualizarCategoriaRequest" message="tns:atualizarCategoria"/>
-<output wsam:Action="http://service/Finance/atualizarCategoriaResponse" message="tns:atualizarCategoriaResponse"/>
+<operation name="Saldo">
+<input wsam:Action="http://service/Finance/SaldoRequest" message="tns:Saldo"/>
+<output wsam:Action="http://service/Finance/SaldoResponse" message="tns:SaldoResponse"/>
 </operation>
 </portType>
 <binding name="FinancePortBinding" type="tns:Finance">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="apagarCategoria">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="atualizarCategoria">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="listarCategoria">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="inserirMovimento">
 <soap:operation soapAction=""/>
 <input>
@@ -103,6 +140,15 @@
 <fault name="ParseException">
 <soap:fault name="ParseException" use="literal"/>
 </fault>
+</operation>
+<operation name="inserirCategoria">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
 </operation>
 <operation name="apagarMovimento">
 <soap:operation soapAction=""/>
@@ -131,34 +177,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="apagarCategoria">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="listarCategoria">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="inserirCategoria">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="atualizarCategoria">
+<operation name="Saldo">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

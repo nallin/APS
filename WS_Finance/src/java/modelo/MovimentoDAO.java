@@ -12,7 +12,6 @@ public class MovimentoDAO {
 
     Connection banco;
     boolean debugar;
-  
 
     public MovimentoDAO() throws ClassNotFoundException, SQLException {
         FabricaConexoes fabrica = new FabricaConexoes();
@@ -100,11 +99,25 @@ public class MovimentoDAO {
             m = new Movimento();
             m.setTitulo(resultado.getString("titulo"));
             m.setDescricao(resultado.getString("descricao"));
-            lista.add(m); 
-            if(debugar) System.out.println(lista);
-                       
+            lista.add(m);
+            if (debugar) {
+                System.out.println(lista);
+            }
+
         }
 
         return lista;
+    }
+
+    public float listarSaldo() throws SQLException {
+        PreparedStatement stmt = banco.prepareStatement("SELECT (( SELECT sum(valor) as Disponivel from movimentos WHERE tipo_lancamento=0)\n"
+                + "-(SELECT sum(valor) as Disponivel from movimentos WHERE tipo_lancamento=1)) as DISPONIVEL FROM movimentos GROUP BY DISPONIVEL;");
+
+        ResultSet resultado = stmt.executeQuery();
+        Movimento m;
+        m = new Movimento();
+        resultado.next();
+        m.setValor(resultado.getFloat("total"));
+        return (m.getValor());
     }
 }

@@ -2,6 +2,10 @@
 
 <xs:element name="ParseException" type="tns:ParseException"/>
 
+<xs:element name="Saldo" type="tns:Saldo"/>
+
+<xs:element name="SaldoResponse" type="tns:SaldoResponse"/>
+
 <xs:element name="apagarCategoria" type="tns:apagarCategoria"/>
 
 <xs:element name="apagarCategoriaResponse" type="tns:apagarCategoriaResponse"/>
@@ -111,6 +115,16 @@
 </xs:complexType>
 
 <xs:complexType name="listarMovimentoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Saldo">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="SaldoResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
