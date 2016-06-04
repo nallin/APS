@@ -11,6 +11,8 @@ import java.util.Date;
 public class MovimentoDAO {
 
     Connection banco;
+    boolean debugar;
+  
 
     public MovimentoDAO() throws ClassNotFoundException, SQLException {
         FabricaConexoes fabrica = new FabricaConexoes();
@@ -96,14 +98,10 @@ public class MovimentoDAO {
         Movimento m;
         while (resultado.next()) {
             m = new Movimento();
-            m.setId(resultado.getInt("id"));
             m.setTitulo(resultado.getString("titulo"));
-            m.setDescricao(resultado.getString("descricao"));
-            m.setVencimento(resultado.getDate("vencimento"));
-            m.setValor(resultado.getFloat("valor"));
-            m.setId_Categoria(resultado.getInt("id_categoria"));
-            m.setTipo_Lancamento(resultado.getInt("tipo_lancamento"));
-            lista.add(m);
+            lista.add(m); 
+            if(debugar) System.out.println(lista);
+                       
         }
 
         return lista;

@@ -137,7 +137,9 @@ public class Finance {
     public String listarMovimento() {
         String lista = "";
         try {
+            //String lista = "";
             Movimento nova = new Movimento();
+            //nova.setName(txt);
             MovimentoDAO mov = new MovimentoDAO();
             lista = "\n" + mov.listar();
         } catch (ClassNotFoundException | SQLException ex) {

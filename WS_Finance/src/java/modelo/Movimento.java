@@ -23,7 +23,7 @@ public class Movimento {
      * @param valor
      */
     public Movimento(int id_Categoria, int tipo_Lancamento, String titulo, String descricao, Float valor) {
-        this.id = id;
+       
         this.id_Categoria = id_Categoria;
         this.tipo_Lancamento = tipo_Lancamento;
         this.titulo = titulo;
@@ -104,4 +104,11 @@ public class Movimento {
     public void setVencimento(Date vencimento) {
         this.vencimento = vencimento;
     }
+    @Override
+    public String toString(){
+    return this.titulo;
+    }
+    
+  
+   
 }

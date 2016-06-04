@@ -40,8 +40,8 @@ public class Mov_menu {
                     val = novo.nextInt();
                     System.out.print("Inserir um tipo: ");
                     tip = novo.nextInt();
-                    String lista = listarCategoria();
-                    System.out.println(lista);
+                    String lista1 = listarCategoria();
+                    System.out.println(lista1);
                     System.out.print("Inserir uma categoria: ");
                     cat = novo.nextInt();
                     inserirMovimento(s1, s2, dat, val, tip, cat);
@@ -60,9 +60,9 @@ public class Mov_menu {
                     atualizarMovimento(s2, s1);
                     break;
                 case 4:
-                    String lista1 = listarMovimento();
+                    String lista = listarMovimento();
 
-                    System.out.println(lista1);
+                    System.out.println(lista);
 
                     break;
             }
@@ -101,4 +101,5 @@ public class Mov_menu {
         return port.listarMovimento();
     }
 
+    
 }
