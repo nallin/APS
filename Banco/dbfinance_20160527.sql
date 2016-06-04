@@ -23,7 +23,7 @@ USE `dbfinance` ;
 CREATE TABLE IF NOT EXISTS `dbfinance`.`categoria` (
   `id_categoria` SMALLINT(6) NOT NULL AUTO_INCREMENT,
   `nome_categoria` VARCHAR(20) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_categoria`))
+  PRIMARY KEY (`id_categoria`,`nome_categoria`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
