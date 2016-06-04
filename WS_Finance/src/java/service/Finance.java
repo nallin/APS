@@ -1,6 +1,5 @@
 package service;
 
-
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -20,11 +19,13 @@ import modelo.MovimentoDAO;
 @WebService(serviceName = "Finance")
 public class Finance {
 
+    public boolean debugar;
+
     /**
      * This is a sample web service operation
      *
      * @param txt
-     * @return      *
+     * @return *
      */
     @WebMethod(operationName = "inserirCategoria")
     public String inserirCategoria(@WebParam(name = "cat") String txt) {
@@ -52,7 +53,7 @@ public class Finance {
         }
         return ("Apagado");
     }
-       
+
     /**
      *
      * @param txt
@@ -60,7 +61,7 @@ public class Finance {
      * @return
      */
     @WebMethod(operationName = "atualizarCategoria")
-    public String atualizarCategoria (@WebParam(name = "cat")String txt1, String txt2){
+    public String atualizarCategoria(@WebParam(name = "cat") String txt1, String txt2) {
         try {
             Categoria nova = new Categoria();
             nova.setName(txt1);
@@ -69,11 +70,12 @@ public class Finance {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return("Inserido");
-        
+        return ("Inserido");
+
     }
-   @WebMethod(operationName = "listarCategoria")
-    public String listarCategoria (){
+
+    @WebMethod(operationName = "listarCategoria")
+    public String listarCategoria() {
         String lista = "";
         try {
             //String lista = "";
@@ -86,23 +88,25 @@ public class Finance {
         }
         return lista;
     }
+
     @WebMethod(operationName = "inserirMovimento")
-    public String inserirMovimento(@WebParam(name = "mov") String tit, String desc, String dat, float v, int lan, int cat) throws ParseException{
+    public String inserirMovimento(@WebParam(name = "mov") String tit, String desc, String dat, float v, int lan, int cat) throws ParseException {
 
         try {
             Movimento nova = new Movimento(cat, lan, tit, desc, v);
-            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");  
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             Date dt = df.parse(dat);
             nova.setVencimento(dt);
             MovimentoDAO mov = new MovimentoDAO();
             mov.inserir(nova);
-            
-            
+
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ("Inserido");
     }
+
+    @WebMethod(operationName = "apagarMovimento")
     public String apagarMovimento(@WebParam(name = "mov") String txt) {
         try {
             Movimento nova = new Movimento();
@@ -114,8 +118,9 @@ public class Finance {
         }
         return ("Apagado");
     }
-     @WebMethod(operationName = "atualizarMovimento")
-    public String atualizarMovimento(@WebParam(name = "mov")String txt1, String txt2){
+
+    @WebMethod(operationName = "atualizarMovimento")
+    public String atualizarMovimento(@WebParam(name = "mov") String txt1, String txt2) {
         try {
             Movimento nova = new Movimento();
             nova.setTitulo(txt1);
@@ -124,7 +129,20 @@ public class Finance {
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return("Inserido");
-        
+        return ("Inserido");
+
     }
-}    
+
+    @WebMethod(operationName = "listarMovimento")
+    public String listarMovimento() {
+        String lista = "";
+        try {
+            Movimento nova = new Movimento();
+            MovimentoDAO mov = new MovimentoDAO();
+            lista = "\n" + mov.listar();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lista;
+    }
+}

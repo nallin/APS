@@ -14,7 +14,7 @@ public class Mov_menu {
     /**
      * @param args the command line arguments
      */
-    public void movimento_menu (String[] args){
+    public void movimento_menu(String[] args) {
         try {
             String s1;
             String s2;
@@ -24,6 +24,7 @@ public class Mov_menu {
             System.out.print("\n 1-Inserir");
             System.out.print("\n 2-Apagar ");
             System.out.print("\n 3-Atualizar ");
+            System.out.print("\n 4-Listar ");            
             System.out.print("\n Escolha uma opcao: ");
             Scanner novo = new Scanner(System.in);
             escolha_movimento = novo.nextInt();
@@ -39,9 +40,9 @@ public class Mov_menu {
                     val = novo.nextInt();
                     System.out.print("Inserir um tipo: ");
                     tip = novo.nextInt();
-                    String lista  = listarCategoria();
+                    String lista = listarCategoria();
                     System.out.println(lista);
-                    System.out.print("Inserir uma categoria: "); 
+                    System.out.print("Inserir uma categoria: ");
                     cat = novo.nextInt();
                     inserirMovimento(s1, s2, dat, val, tip, cat);
                     break;
@@ -51,12 +52,18 @@ public class Mov_menu {
                     apagarMovimento(s1);
                     break;
                 case 3:
-                    Scanner velho = new Scanner(System.in); 
+                    Scanner velho = new Scanner(System.in);
                     System.out.print("Digite o nome do Titulo que deseja alterar: ");
-                    s2 = velho.next(); 
+                    s2 = velho.next();
                     System.out.print("Digite o novo nome do Titulo: ");
                     s1 = novo.next();
                     atualizarMovimento(s2, s1);
+                    break;
+                case 4:
+                    String lista1 = listarMovimento();
+
+                    System.out.println(lista1);
+
                     break;
             }
         } catch (ParseException_Exception ex) {
@@ -88,10 +95,10 @@ public class Mov_menu {
         return port.atualizarMovimento(mov, arg1);
     }
 
-
-   
-    
-    
+    private static String listarMovimento() {
+        service.Finance_Service service = new service.Finance_Service();
+        service.Finance port = service.getFinancePort();
+        return port.listarMovimento();
+    }
 
 }
-
