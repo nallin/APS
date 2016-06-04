@@ -6,9 +6,17 @@
 
 <xs:element name="apagarCategoriaResponse" type="tns:apagarCategoriaResponse"/>
 
+<xs:element name="apagarMovimento" type="tns:apagarMovimento"/>
+
+<xs:element name="apagarMovimentoResponse" type="tns:apagarMovimentoResponse"/>
+
 <xs:element name="atualizarCategoria" type="tns:atualizarCategoria"/>
 
 <xs:element name="atualizarCategoriaResponse" type="tns:atualizarCategoriaResponse"/>
+
+<xs:element name="atualizarMovimento" type="tns:atualizarMovimento"/>
+
+<xs:element name="atualizarMovimentoResponse" type="tns:atualizarMovimentoResponse"/>
 
 <xs:element name="inserirCategoria" type="tns:inserirCategoria"/>
 
@@ -81,6 +89,19 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="atualizarMovimento">
+<xs:sequence>
+<xs:element name="mov" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="atualizarMovimentoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="inserirCategoria">
 <xs:sequence>
 <xs:element name="cat" type="xs:string" minOccurs="0"/>
@@ -88,6 +109,18 @@
 </xs:complexType>
 
 <xs:complexType name="inserirCategoriaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="apagarMovimento">
+<xs:sequence>
+<xs:element name="mov" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="apagarMovimentoResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>

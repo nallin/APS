@@ -87,7 +87,7 @@ public class Finance {
         return lista;
     }
     @WebMethod(operationName = "inserirMovimento")
-    public String inserirMovimento(@WebParam(name = "mov") String tit, String desc, String dat, float v, int cat, int lan) throws ParseException{
+    public String inserirMovimento(@WebParam(name = "mov") String tit, String desc, String dat, float v, int lan, int cat) throws ParseException{
 
         try {
             Movimento nova = new Movimento(cat, lan, tit, desc, v);
@@ -103,5 +103,28 @@ public class Finance {
         }
         return ("Inserido");
     }
-
+    public String apagarMovimento(@WebParam(name = "mov") String txt) {
+        try {
+            Movimento nova = new Movimento();
+            nova.setTitulo(txt);
+            MovimentoDAO mov = new MovimentoDAO();
+            mov.apagarPeloTitulo(nova);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ("Apagado");
+    }
+     @WebMethod(operationName = "atualizarMovimento")
+    public String atualizarMovimento(@WebParam(name = "mov")String txt1, String txt2){
+        try {
+            Movimento nova = new Movimento();
+            nova.setTitulo(txt1);
+            MovimentoDAO mov = new MovimentoDAO();
+            mov.atualizarTitulo(nova, txt2);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return("Inserido");
+        
+    }
 }    
