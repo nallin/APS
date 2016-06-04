@@ -110,14 +110,14 @@ public class MovimentoDAO {
     }
 
     public float listarSaldo() throws SQLException {
-        PreparedStatement stmt = banco.prepareStatement("SELECT (( SELECT sum(valor) as Disponivel from movimentos WHERE tipo_lancamento=0)\n"
-                + "-(SELECT sum(valor) as Disponivel from movimentos WHERE tipo_lancamento=1)) as DISPONIVEL FROM movimentos GROUP BY DISPONIVEL;");
+        PreparedStatement stmt = banco.prepareStatement("SELECT (( SELECT sum(valor) as Disponivel from movimentos WHERE tipo_lancamento=1)\n"
+                + "-(SELECT sum(valor) as Disponivel from movimentos WHERE tipo_lancamento=0)) as DISPONIVEL FROM movimentos GROUP BY DISPONIVEL;");
 
         ResultSet resultado = stmt.executeQuery();
         Movimento m;
         m = new Movimento();
         resultado.next();
-        m.setValor(resultado.getFloat("total"));
+        m.setValor(resultado.getFloat("Disponivel"));
         return (m.getValor());
     }
 }

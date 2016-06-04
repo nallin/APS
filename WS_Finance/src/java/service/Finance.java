@@ -142,7 +142,7 @@ public class Finance {
         try {
             Movimento nova = new Movimento();
             MovimentoDAO mov = new MovimentoDAO();
-            lista = "\n" + mov.listar();
+            lista = "\n" + mov.listarSaldo();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
         }
