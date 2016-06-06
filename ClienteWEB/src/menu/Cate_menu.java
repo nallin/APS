@@ -1,12 +1,10 @@
 package menu;
 
-import java.util.List;
+//import java.util.List;
 import java.util.Scanner;
 
 public class Cate_menu {
-    /**
-     * @param args the command line arguments
-     */
+
     public void categoria_menu (String[] args){
         String s1;
         String s2;
@@ -30,9 +28,10 @@ public class Cate_menu {
                 inserirCategoria(s1);
                 break;
             case 2:
-                System.out.print("\n Apagar uma Categoria: ");
+                System.out.print("\n Apagar uma Categoria pelo nome: ");
                 s1 = novo.next();
-                apagarCategoria(s1);
+                String result = apagarCategoria(s1);
+                System.err.println(result); 
                 break;
             case 3:
                 Scanner velho = new Scanner(System.in);
@@ -48,18 +47,12 @@ public class Cate_menu {
                 break;
             case 4:
                 String lista  = listarCategoria();
-               
                 System.out.println(lista);
                 break;
         }
     }
 
-    private static String apagarCategoria(java.lang.String cat) {
-        service.Finance_Service service = new service.Finance_Service();
-        service.Finance port = service.getFinancePort();
-        return port.apagarCategoria(cat);
-    }
-
+    
     private static String inserirCategoria(java.lang.String cat) {
         service.Finance_Service service = new service.Finance_Service();
         service.Finance port = service.getFinancePort();
@@ -77,6 +70,11 @@ public class Cate_menu {
         service.Finance port = service.getFinancePort();
         return port.listarCategoria();
         
+    }   
+
+    private static String apagarCategoria(java.lang.String cat) {
+        service.Finance_Service service = new service.Finance_Service();
+        service.Finance port = service.getFinancePort();
+        return port.apagarCategoria(cat);
     }
-    
 }

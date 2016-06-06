@@ -4,6 +4,10 @@
 
 <xs:element name="Saldo" type="tns:Saldo"/>
 
+<xs:element name="SaldoInicial" type="tns:SaldoInicial"/>
+
+<xs:element name="SaldoInicialResponse" type="tns:SaldoInicialResponse"/>
+
 <xs:element name="SaldoResponse" type="tns:SaldoResponse"/>
 
 <xs:element name="apagarCategoria" type="tns:apagarCategoria"/>
@@ -18,9 +22,17 @@
 
 <xs:element name="atualizarCategoriaResponse" type="tns:atualizarCategoriaResponse"/>
 
-<xs:element name="atualizarMovimento" type="tns:atualizarMovimento"/>
+<xs:element name="atualizarDescriçãoMovimento" type="tns:atualizarDescriçãoMovimento"/>
 
-<xs:element name="atualizarMovimentoResponse" type="tns:atualizarMovimentoResponse"/>
+<xs:element name="atualizarDescriçãoMovimentoResponse" type="tns:atualizarDescriçãoMovimentoResponse"/>
+
+<xs:element name="atualizarTituloMovimento" type="tns:atualizarTituloMovimento"/>
+
+<xs:element name="atualizarTituloMovimentoResponse" type="tns:atualizarTituloMovimentoResponse"/>
+
+<xs:element name="atualizarValorMovimento" type="tns:atualizarValorMovimento"/>
+
+<xs:element name="atualizarValorMovimentoResponse" type="tns:atualizarValorMovimentoResponse"/>
 
 <xs:element name="inserirCategoria" type="tns:inserirCategoria"/>
 
@@ -34,88 +46,63 @@
 
 <xs:element name="listarCategoriaResponse" type="tns:listarCategoriaResponse"/>
 
-<xs:element name="listarMovimento" type="tns:listarMovimento"/>
+<xs:element name="listarDescricaoMovimento" type="tns:listarDescricaoMovimento"/>
 
-<xs:element name="listarMovimentoResponse" type="tns:listarMovimentoResponse"/>
+<xs:element name="listarDescricaoMovimentoResponse" type="tns:listarDescricaoMovimentoResponse"/>
 
-<xs:complexType name="listarCategoria">
-<xs:sequence/>
-</xs:complexType>
+<xs:element name="listarTituloMovimento" type="tns:listarTituloMovimento"/>
 
-<xs:complexType name="listarCategoriaResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
+<xs:element name="listarTituloMovimentoResponse" type="tns:listarTituloMovimentoResponse"/>
 
-<xs:complexType name="atualizarCategoria">
-<xs:sequence>
-<xs:element name="cat" type="xs:string" minOccurs="0"/>
-<xs:element name="arg1" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
+<xs:element name="listarValorMovimento" type="tns:listarValorMovimento"/>
 
-<xs:complexType name="atualizarCategoriaResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
+<xs:element name="listarValorMovimentoResponse" type="tns:listarValorMovimentoResponse"/>
 
-<xs:complexType name="apagarCategoria">
-<xs:sequence>
-<xs:element name="cat" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
+<xs:element name="listarVencimentoMovimento" type="tns:listarVencimentoMovimento"/>
 
-<xs:complexType name="apagarCategoriaResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
+<xs:element name="listarVencimentoMovimentoResponse" type="tns:listarVencimentoMovimentoResponse"/>
 
-<xs:complexType name="inserirMovimento">
-<xs:sequence>
-<xs:element name="mov" type="xs:string" minOccurs="0"/>
-<xs:element name="arg1" type="xs:string" minOccurs="0"/>
-<xs:element name="arg2" type="xs:string" minOccurs="0"/>
-<xs:element name="arg3" type="xs:float"/>
-<xs:element name="arg4" type="xs:int"/>
-<xs:element name="arg5" type="xs:int"/>
-<xs:element name="arg6" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="inserirMovimentoResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="ParseException">
-<xs:sequence>
-<xs:element name="errorOffset" type="xs:int"/>
-<xs:element name="message" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="atualizarMovimento">
+<xs:complexType name="atualizarTituloMovimento">
 <xs:sequence>
 <xs:element name="mov" type="xs:string" minOccurs="0"/>
 <xs:element name="arg1" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="atualizarMovimentoResponse">
+<xs:complexType name="atualizarTituloMovimentoResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="listarMovimento">
+<xs:complexType name="listarValorMovimento">
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="listarMovimentoResponse">
+<xs:complexType name="listarValorMovimentoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarVencimentoMovimento">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarVencimentoMovimentoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="atualizarValorMovimento">
+<xs:sequence>
+<xs:element name="mov" type="xs:float"/>
+<xs:element name="arg1" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="atualizarValorMovimentoResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
@@ -143,6 +130,101 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="listarCategoria">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarCategoriaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="atualizarCategoria">
+<xs:sequence>
+<xs:element name="cat" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="atualizarCategoriaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SaldoInicial">
+<xs:sequence>
+<xs:element name="mov" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SaldoInicialResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ParseException">
+<xs:sequence>
+<xs:element name="errorOffset" type="xs:int"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="apagarCategoria">
+<xs:sequence>
+<xs:element name="cat" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="apagarCategoriaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="atualizarDescriçãoMovimento">
+<xs:sequence>
+<xs:element name="mov" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="atualizarDescriçãoMovimentoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="inserirMovimento">
+<xs:sequence>
+<xs:element name="mov" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+<xs:element name="arg2" type="xs:string" minOccurs="0"/>
+<xs:element name="arg3" type="xs:float"/>
+<xs:element name="arg4" type="xs:int"/>
+<xs:element name="arg5" type="xs:int"/>
+<xs:element name="arg6" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="inserirMovimentoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarTituloMovimento">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarTituloMovimentoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="apagarMovimento">
 <xs:sequence>
 <xs:element name="mov" type="xs:string" minOccurs="0"/>
@@ -150,6 +232,16 @@
 </xs:complexType>
 
 <xs:complexType name="apagarMovimentoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarDescricaoMovimento">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarDescricaoMovimentoResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>

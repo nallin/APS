@@ -7,8 +7,8 @@ public class Categoria {
     public Categoria(String name){
         this.name = name;
     }
+    
     public Categoria(){
-        
     }
 
     public int getId() {

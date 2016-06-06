@@ -3,10 +3,16 @@ package menu;
 import java.util.Scanner;
 import service.ParseException_Exception;
 
+        
+
 public class Menu {
     
     public static void main (String[] args) throws ParseException_Exception {
         int escolha_menu;
+        
+       
+        
+        
 
         System.out.print("\n #MENU#\n ");
         System.out.print("\n 1- Categoria");

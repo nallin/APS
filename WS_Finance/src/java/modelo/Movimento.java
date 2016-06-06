@@ -21,6 +21,9 @@ public class Movimento {
     
     public Movimento() {
     }
+    public Movimento(Float v){
+        this.valor = v;
+    }
 
     /**
      *
@@ -32,7 +35,6 @@ public class Movimento {
      * @param valor
      */
     public Movimento(int id_Categoria, int tipo_Lancamento, String titulo, String descricao, Float valor, String periodo) {
-       
         this.id_Categoria = id_Categoria;
         this.tipo_Lancamento = tipo_Lancamento;
         this.titulo = titulo;
@@ -90,16 +92,10 @@ public class Movimento {
         this.descricao = descricao;
     }
 
-    /**
-     * @return the vencimento
-     */
     public Date getVencimento() {
         return vencimento;
     }
 
-    /**
-     * @return the vencimento
-     */
     public String getVencimentoString() {
         String data = new SimpleDateFormat("dd/MM/yyyy").format(this.vencimento);
 
@@ -112,11 +108,9 @@ public class Movimento {
     public void setVencimento(Date vencimento) {
         this.vencimento = vencimento;
     }
+    
     @Override
     public String toString(){
     return this.titulo;
     }
-    
-  
-   
 }

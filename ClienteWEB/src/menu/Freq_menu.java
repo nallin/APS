@@ -4,9 +4,7 @@ import java.util.Scanner;
 import service.ParseException_Exception;
 
 public class Freq_menu {
-    /**
-     * @param args the command line arguments
-     */
+    
     public void frequente_menu (String[] args) throws ParseException_Exception {
         String s1;
         String s2;

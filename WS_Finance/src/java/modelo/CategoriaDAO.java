@@ -6,12 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
+//import java.util.List;
 
 public class CategoriaDAO {
     
     public boolean debugar;
-    
     
     public Connection banco;
     
@@ -63,8 +62,6 @@ public class CategoriaDAO {
             lista.add(p);
             if(debugar) System.out.println(lista);
         }
-        
         return lista;
     }
-
 }
