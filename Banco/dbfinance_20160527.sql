@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `dbfinance`.`movimentos` (
     REFERENCES `dbfinance`.`categoria` (`id_categoria`))
 ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
-INSERT INTO `movimentos` (`id_movimento`, `titulo`, `descricao`, `vencimento`, `valor`, `id_categoria`, `tipo_lancamento`, `periodo`) VALUES (NULL, 'SaldoInicial', NULL, NULL, '0', '1', '0', NULL);
+INSERT INTO `movimentos` (`id_movimento`, `titulo`, `descricao`, `vencimento`, `valor`, `id_categoria`, `tipo_lancamento`, `periodo`) VALUES (1, 'SaldoInicial', NULL, NULL, '0', '1', '0', NULL);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
