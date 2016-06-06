@@ -2,28 +2,15 @@ package menu;
 
 import java.util.Scanner;
 import service.ParseException_Exception;
-/*import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;*/
 
 public class Mov_menu {
-    
-    
-        
 
     public void movimento_menu(String[] args) throws ParseException_Exception {
         String titu, des, dat, periodo,apag_mov, atu_ti2, atu_ti1, atu_des2, atu_des1;
         int atu_val2, atu_val1;
-        int escolha_movimento, val, tip, cat;
-        
-        
-        
-        
-        
-        
+        int escolha_movimento, tip, cat;
+        float val;
+
         System.out.print("\n #Movimento Eventual / Frequente# \n ");
         System.out.print("\n 1-Inserir");
         System.out.print("\n 2-Apagar ");
@@ -45,7 +32,7 @@ public class Mov_menu {
                 System.out.print("Inserir o vencimento: ");
                 dat = novo.next();
                 System.out.print("Inserir o valor: ");
-                val = novo.nextInt();
+                val = novo.nextFloat();
                 System.out.print("Inserir um tipo (0-Receita/1-Despesa): ");
                 tip = novo.nextInt();
                 System.out.print("Inserir um tipo (0-Eventual/1-Frequente): ");
@@ -55,7 +42,6 @@ public class Mov_menu {
                 }else{
                     System.out.print("Inserir um periodo:");
                     periodo = novo.next();
-                 
                 }
                 String lista1 = listarCategoria();
                 System.out.println(lista1);
@@ -64,7 +50,9 @@ public class Mov_menu {
                 inserirMovimento(titu, des, dat, val, tip, cat, periodo);
                 break;
             case 2:
-                System.out.print("Apagar um Movimento: ");
+                String lista_tit20 = listarTituloMovimento();
+                System.out.println(lista_tit20);
+                System.out.print("Apagar um Movimento pelo titulo: ");
                 apag_mov = novo.next();
                 apagarMovimento(apag_mov);
                 break;

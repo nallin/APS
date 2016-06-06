@@ -1,6 +1,5 @@
 package menu;
 
-//import java.util.List;
 import java.util.Scanner;
 
 public class Cate_menu {
@@ -19,8 +18,7 @@ public class Cate_menu {
         System.out.print("\n Escolha uma opcao: ");
         
         Scanner novo = new Scanner(System.in);
-        escolha = novo.nextInt();
-                
+        escolha = novo.nextInt();       
         switch (escolha) {
             case 1:
                 System.out.print("\n Inserir uma Categoria: ");

@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -90,7 +89,8 @@ public class Finance {
             nova.setVencimento(dt);
             MovimentoDAO mov = new MovimentoDAO();          
             mov.inserir(nova);
-            mov.Periodo(nova);
+            if (!"NULL".equals(periodo)) 
+                mov.Periodo(nova);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -216,7 +216,6 @@ public class Finance {
             Movimento nova = new Movimento(v);
             MovimentoDAO mov = new MovimentoDAO();          
             mov.SaldoInicial(nova);
-         
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
         }

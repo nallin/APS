@@ -4,10 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- *
- * @author guilhermemn
- */
 public class FabricaConexoes {
     private String servidor, porta, base, login, senha;
     
@@ -65,8 +61,6 @@ public class FabricaConexoes {
         return (Connection) DriverManager.getConnection("jdbc:mysql://" +this.getServidor()+ ":" + 
                 this.getPorta() + "/" + this.getBase(), this.getLogin(), this.getSenha());
     }
-
-
 }
 
 
