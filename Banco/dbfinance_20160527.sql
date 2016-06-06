@@ -22,10 +22,12 @@ USE `dbfinance` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dbfinance`.`categoria` (
   `id_categoria` SMALLINT(6) NOT NULL AUTO_INCREMENT,
-  `nome_categoria` VARCHAR(20) NULL DEFAULT NULL,
+  `nome_categoria` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id_categoria`,`nome_categoria`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
+
+INSERT INTO categoria VALUES (1,"Saldo");
 
 
 -- -----------------------------------------------------
@@ -47,6 +49,7 @@ CREATE TABLE IF NOT EXISTS `dbfinance`.`movimentos` (
     REFERENCES `dbfinance`.`categoria` (`id_categoria`))
 ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
+INSERT INTO `movimentos` (`id_movimento`, `titulo`, `descricao`, `vencimento`, `valor`, `id_categoria`, `tipo_lancamento`, `periodo`) VALUES (NULL, 'SaldoInicial', NULL, NULL, '0', '1', '0', NULL);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
