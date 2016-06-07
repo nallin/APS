@@ -11,6 +11,7 @@ public class Menu {
         System.out.print("\n #MENU#\n ");
         System.out.print("\n 1- Categoria");
         System.out.print("\n 2- Movimento Eventual / Frequente");
+        System.out.print("\n 3- EXIT");
         System.out.print("\n Escolha uma opcao:");
 
         Scanner novo = new Scanner(System.in);

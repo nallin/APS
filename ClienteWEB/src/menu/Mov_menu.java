@@ -139,6 +139,8 @@ public class Mov_menu {
                 System.out.println(total);
             break;
         }
+        Menu menu = new Menu();
+        menu.main (args);
     }
 
     private static String listarCategoria() {

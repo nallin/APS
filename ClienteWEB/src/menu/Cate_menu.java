@@ -1,10 +1,11 @@
 package menu;
 
 import java.util.Scanner;
+import service.ParseException_Exception;
 
 public class Cate_menu {
 
-    public void categoria_menu (String[] args){
+    public void categoria_menu (String[] args) throws ParseException_Exception{
         String s1;
         String s2;
         String s3;
@@ -48,6 +49,8 @@ public class Cate_menu {
                 System.out.println(lista);
                 break;
         }
+        Menu menu = new Menu();
+        menu.main (args);
     }
 
     
